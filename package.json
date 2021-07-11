@@ -1,0 +1,38 @@
+{
+	"name": "tribe_economy",
+	"version": "0.0.1",
+	"description": "Our Economy Module",
+	"main": "./dist/src/mod.js",
+	"scripts": {
+		"start": "tsc && node .",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Tribe-Discord/Economy.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Tribe-Discord/Economy/issues"
+	},
+	"homepage": "https://github.com/Tribe-Discord/Economy#readme",
+	"dependencies": {
+		"@types/node": "^14.14.6",
+		"@types/redis": "^2.8.28",
+		"@types/uuid": "^8.3.0",
+		"assistant": "git+https://github.com/Bavfalcon9/Assistant.git#v3",
+		"eris": "github:abalabahaha/eris#dev",
+		"mongoose": "^5.10.11",
+		"pg": "^8.5.1",
+		"redis": "^3.0.2",
+		"tribe_database": "git+https://github.com/Tribe-Discord/Database.git#main",
+		"typescript": "^4.0.5",
+		"uuid": "^8.3.2"
+	},
+	"devDependencies": {
+		"@types/mongoose": "^5.7.37",
+		"@types/pg": "^7.14.11",
+		"ts-node": "^9.0.0"
+	}
+}
