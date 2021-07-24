@@ -13,7 +13,7 @@ export class ActionTime {
       * @param length - The length of time, either a string resolvable or a number which represents minutes.
       */
      public constructor(length: string | number) {
-          this.#calculated = (typeof length === 'string') ? this.fromString(length) : this.sanitize(this.fromMinutes(length));
+          this.#calculated = (typeof length === 'string') ? this.fromString(length) : this.sanitize(this.fromSeconds(length));
      }
 
      private fromString(input: string): TimeMap {
@@ -42,12 +42,12 @@ export class ActionTime {
           return map;
      }
 
-     private fromMinutes(mins: number): TimeMap {
+     private fromSeconds(secs: number): TimeMap {
           return {
                days: 0,
                hours: 0,
-               minutes: mins,
-               seconds: 0,
+               minutes: 0,
+               seconds: secs,
                years: 0,
                weeks: 0
           };
