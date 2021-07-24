@@ -91,7 +91,6 @@ export class Case {
           return new Date(this.#db_cache.details.time);
      }
 
-
      /**
       * The user that was banned, muted, or kicked
       */
@@ -121,7 +120,7 @@ export class Case {
       * The length of the moderation
       */
      public get duration(): number {
-
+          return this.#db_cache.details.duration;
      }
 
      /**
