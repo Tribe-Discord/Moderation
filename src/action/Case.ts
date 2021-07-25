@@ -3,6 +3,7 @@
  */
 export interface CaseRaw {
      id: number;
+     type: CaseType,
      details: {
           active: boolean;
           time: number;
@@ -29,6 +30,7 @@ export type CaseOffender = CaseUser & {
 }
 
 export enum CaseType {
+     Unknown = -1,
      Ban,
      Mute,
      Kick,
@@ -43,6 +45,7 @@ export class Case {
                cache = {
                     // to do, calculate the id from db
                     id: 0,
+                    type: CaseType.Unknown,
                     details: {
                          active: true,
                          time: Date.now(),

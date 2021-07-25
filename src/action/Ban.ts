@@ -1,4 +1,5 @@
 import { Case, CaseModerator, CaseOffender, CaseUser } from "./Case";
+import { Database, DatabaseTypes } from 'tribe_database';
 
 export class Ban {
      public case: Case;
@@ -13,7 +14,7 @@ export class Ban {
      /**
       * Writes the ban to the db
       */
-     public save() {
+     public async save() {
 
      }
 }
