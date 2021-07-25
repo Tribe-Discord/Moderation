@@ -9,6 +9,7 @@ export interface CaseRaw {
           time: number;
           reason: string;
           reason_modified: boolean;
+          // duration is set in seconds relative to the time
           duration: number;
           persist: boolean;
      };
@@ -88,7 +89,18 @@ export class Case {
      }
 
      /**
-      * The time this "action" or case occurred.
+      * The type of the case, Ban, Mute, Kick, Etc
+      */
+     public get type(): CaseType {
+          return this.#db_cache.type;
+     }
+
+     public set type(type: CaseType) {
+          this.#db_cache.type = type;
+     }
+
+     /**
+      * The time this "action" or case occurred (a date.now()).
       */
      public get time(): Date {
           return new Date(this.#db_cache.details.time);
@@ -130,7 +142,7 @@ export class Case {
       * Gets the raw data of the given case.
       */
      public get raw(): CaseRaw {
-          return this.#db_cache;
+          return Object.assign({}, this.#db_cache);
      }
 
      /**
