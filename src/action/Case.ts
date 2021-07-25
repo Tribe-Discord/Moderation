@@ -1,3 +1,5 @@
+import { ModDb } from "tribe_database";
+
 /**
  * The raw type recieved from the Database
  */
@@ -52,7 +54,7 @@ export class Case {
                          time: Date.now(),
                          reason: "No reason provided",
                          reason_modified: false,
-                         duration: 10,
+                         duration: -1,
                          persist: true
                     },
                     mod: {
@@ -150,5 +152,22 @@ export class Case {
       */
      public archive(): Promise<boolean> {
           return new Promise((res, rej) => res(true)); // stfu TS for now
+     }
+
+     /**
+      * Saves a case to the moderation database.
+      * Creates it, if it doesn't exist.
+      */
+     public async save(): Promise<boolean> {
+          try {
+               // @ts-ignore
+               if (!await ModDb.updateCase(this)) {
+                    // @ts-ignore
+                    return await ModDb.createCase(this);
+               }
+               return true;
+          } catch {
+               return false;
+          }
      }
 }
