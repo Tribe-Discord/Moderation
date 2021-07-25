@@ -127,6 +127,13 @@ export class Case {
      }
 
      /**
+      * Gets the raw data of the given case.
+      */
+     public get raw(): CaseRaw {
+          return this.#db_cache;
+     }
+
+     /**
       * Archives the case, making
       */
      public archive(): Promise<boolean> {
