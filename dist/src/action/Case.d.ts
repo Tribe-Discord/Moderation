@@ -45,7 +45,12 @@ export declare class Case {
     get moderator(): CaseModerator;
     set moderator(mod: CaseModerator);
     /**
-     * The time this "action" or case occurred.
+     * The type of the case, Ban, Mute, Kick, Etc
+     */
+    get type(): CaseType;
+    set type(type: CaseType);
+    /**
+     * The time this "action" or case occurred (a date.now()).
      */
     get time(): Date;
     /**
@@ -62,6 +67,10 @@ export declare class Case {
      * The length of the moderation
      */
     get duration(): number;
+    /**
+     * Gets the raw data of the given case.
+     */
+    get raw(): CaseRaw;
     /**
      * Archives the case, making
      */

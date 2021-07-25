@@ -71,7 +71,16 @@ class Case {
         __classPrivateFieldGet(this, _db_cache).mod = mod;
     }
     /**
-     * The time this "action" or case occurred.
+     * The type of the case, Ban, Mute, Kick, Etc
+     */
+    get type() {
+        return __classPrivateFieldGet(this, _db_cache).type;
+    }
+    set type(type) {
+        __classPrivateFieldGet(this, _db_cache).type = type;
+    }
+    /**
+     * The time this "action" or case occurred (a date.now()).
      */
     get time() {
         return new Date(__classPrivateFieldGet(this, _db_cache).details.time);
@@ -102,6 +111,12 @@ class Case {
      */
     get duration() {
         return __classPrivateFieldGet(this, _db_cache).details.duration;
+    }
+    /**
+     * Gets the raw data of the given case.
+     */
+    get raw() {
+        return Object.assign({}, __classPrivateFieldGet(this, _db_cache));
     }
     /**
      * Archives the case, making
